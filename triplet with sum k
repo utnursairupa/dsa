@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum;
+    
+    cin >> n>>sum;
+    
+    int ar[n];
+    
+    for(int i = 0; i < n; i++) {
+        cin >> ar[i];
+    }
+    
+    bool found = false;
+    
+    for(int i = 0; i < n - 2; i++) {       
+        for(int j = i + 1; j < n - 1; j++) {  
+            for(int k = j + 1; k < n; k++) {  
+                if(ar[i] + ar[j] + ar[k] == sum) {
+                    found = true;
+                    cout << "YES "  << endl;
+                    break;
+                }
+            }
+            if(found) break;
+        }
+        if(found) break;
+    }
+
+    if(!found) {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
